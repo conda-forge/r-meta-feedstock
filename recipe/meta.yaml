@@ -1,44 +1,56 @@
-{% set version = '4.9-1' %}
-{% set name = 'meta' %}
-{% set hash = '5df99937b113d677adb4806c725aee041f1c6e81839a5e6264d455c5d9f768db' %}
+{% set version = '4.9-2' %}
+{% set posix = 'm2-' if win else '' %}
+{% set native = 'm2w64-' if win else '' %}
 
 package:
-  name: 'r-{{ name }}'
-  version: '{{ version|replace("-", "_") }}'
+  name: r-meta
+  version: {{ version|replace("-", "_") }}
 
 source:
-  fn: '{{ name }}_{{ version }}.tar.gz'
+  fn: meta_{{ version }}.tar.gz
   url:
-    - 'https://cran.r-project.org/src/contrib/meta_4.9-1.tar.gz'
-    - 'https://cran.r-project.org/src/contrib/Archive/meta/meta_4.9-1.tar.gz'
-  sha256: '{{ hash }}'
+    - {{ cran_mirror }}/src/contrib/meta_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/meta/meta_{{ version }}.tar.gz
+  sha256: 501bb352881a5d03cc1a33f6a14a17dbb71607f70b3784f368c1fc07af34eec3
 
 build:
-  skip: True     # [win]
+  merge_build_host: True  # [win]
   number: 0
-
+  # build error in win64
+  skip: true  # [win]
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
-
   run:
     - r-base
 
 test:
   commands:
-    - $R -e "library('meta')"
+    - $R -e "library('meta')"           # [not win]
+    - "\"%R%\" -e \"library('meta')\""  # [win]
 
 about:
-  home: 'https://cran.r-project.org/web/packages/meta/index.html'
-  license: 'GPL-2,GPL-3'
-  license_family: 'GPL'
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
-  summary: 'User-friendly general package providing standard methods for meta-analysis and supporting
-    Schwarzer, Carpenter, and R. doi:10.1007/978-3-319-21416-0'
+  home: https://github.com/guido-s/meta http://meta-analysis-with-r.org
+  license: GPL (>= 2)
+  summary: "User-friendly general package providing standard methods for meta-analysis and supporting
+    Schwarzer, Carpenter, and R\xC3\xBCcker <DOI:10.1007/978-3-319-21416-0>, \"Meta-Analysis
+    with R\" (2015): - fixed effect and random effects meta-analysis; - several plots
+    (forest, funnel, Galbraith / radial, L'Abbe, Baujat, bubble); - statistical tests
+    and trim-and-fill method to evaluate bias in meta-analysis; - import data from 'RevMan
+    5'; - prediction interval, Hartung-Knapp and Paule-Mandel method for random effects
+    model; - cumulative meta-analysis and leave-one-out meta-analysis; - meta-regression
+    (if R package 'metafor' is installed); - generalised linear mixed models (if R packages
+    'metafor', 'lme4', 'numDeriv', and 'BiasedUrn' are installed); - produce forest
+    plot summarising several (subgroup) meta-analyses."
+  license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
@@ -47,4 +59,5 @@ extra:
     - daler
     - jdblischak
     - cbrueffer
+    - dbast
     - slacalle
