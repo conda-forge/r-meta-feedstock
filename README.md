@@ -14,9 +14,8 @@ Summary: User-friendly general package providing standard methods for meta-analy
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-meta-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-meta-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/r-meta-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-meta-feedstock)
-![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/r-meta-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/r-meta-feedstock)
 
 Current release info
 ====================

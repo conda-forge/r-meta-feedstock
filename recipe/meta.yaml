@@ -14,10 +14,10 @@ source:
   sha256: 501bb352881a5d03cc1a33f6a14a17dbb71607f70b3784f368c1fc07af34eec3
 
 build:
+  noarch: generic
   merge_build_host: True  # [win]
-  number: 0
+  number: 1000
   # build error in win64
-  skip: true  # [win]
   rpaths:
     - lib/R/lib/
     - lib/
@@ -49,8 +49,7 @@ about:
     'metafor', 'lme4', 'numDeriv', and 'BiasedUrn' are installed); - produce forest
     plot summarising several (subgroup) meta-analyses."
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
