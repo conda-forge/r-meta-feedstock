@@ -1,7 +1,3 @@
-<!--
-# -*- mode: jinja -*-
--->
-
 About r-meta
 ============
 
@@ -11,15 +7,22 @@ Package license: GPL (>= 2)
 
 Feedstock license: BSD 3-Clause
 
-Summary: User-friendly general package providing standard methods for meta-analysis and supporting Schwarzer, Carpenter, and RÃ¼cker <DOI:10.1007/978-3-319-21416-0>, "Meta-Analysis with R" (2015): - fixed effect and random effects meta-analysis; - several plots (forest, funnel, Galbraith / radial, L'Abbe, Baujat, bubble); - statistical tests and trim-and-fill method to evaluate bias in meta-analysis; - import data from 'RevMan 5'; - prediction interval, Hartung-Knapp and Paule-Mandel method for random effects model; - cumulative meta-analysis and leave-one-out meta-analysis; - meta-regression (if R package 'metafor' is installed); - generalised linear mixed models (if R packages 'metafor', 'lme4', 'numDeriv', and 'BiasedUrn' are installed); - produce forest plot summarising several (subgroup) meta-analyses.
+Summary: User-friendly general package providing standard methods for meta-analysis and supporting Schwarzer, Carpenter, and RÃ¼cker <DOI:10.1007/978-3-319-21416-0>, "Meta-Analysis with R" (2015): - fixed effect and random effects meta-analysis; - several plots (forest, funnel, Galbraith / radial, L'Abbe, Baujat, bubble); - statistical tests and trim-and-fill method to evaluate bias in meta-analysis; - import data from 'RevMan 5'; - prediction interval, Hartung-Knapp and Paule-Mandel method for random effects model; - cumulative meta-analysis and leave-one-out meta-analysis; - meta-regression; - generalised linear mixed models; - produce forest plot summarising several (subgroup) meta-analyses.
 
 
 
 Current build status
 ====================
 
-All platforms:
-[![noarch](https://img.shields.io/circleci/project/github/conda-forge/r-meta-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/r-meta-feedstock)
+
+<table><tr><td>All platforms:</td>
+    <td>
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4234&branchName=master">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-meta-feedstock?branchName=master">
+      </a>
+    </td>
+  </tr>
+</table>
 
 Current release info
 ====================
