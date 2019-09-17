@@ -1,4 +1,4 @@
-{% set version = '4.9-5' %}
+{% set version = '4.9-6' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/meta_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/meta/meta_{{ version }}.tar.gz
-  sha256: 8361d2ab0d86e726cbbd57942efe2abb4907fd930261e389acdf1ad5e15468fa
+  sha256: 5da7a97308f60299ec3f79088d7b0fd63b74b62b1ed94b2a69d2e314f7d84e07
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -39,7 +39,7 @@ test:
 
 about:
   home: https://github.com/guido-s/meta http://meta-analysis-with-r.org
-  license: GPL (>= 2)
+  license: GPL-2
   summary: "User-friendly general package providing standard methods for meta-analysis and supporting
     Schwarzer, Carpenter, and R\xC3\xBCcker <DOI:10.1007/978-3-319-21416-0>, \"Meta-Analysis
     with R\" (2015): - fixed effect and random effects meta-analysis; - several plots
@@ -49,8 +49,9 @@ about:
     model; - cumulative meta-analysis and leave-one-out meta-analysis; - meta-regression;
     - generalised linear mixed models; - produce forest plot summarising several (subgroup)
     meta-analyses."
-  license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_family: GPL2
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
@@ -59,8 +60,8 @@ extra:
 
 # Package: meta
 # Title: General Package for Meta-Analysis
-# Version: 4.9-5
-# Date: 2019-04-11
+# Version: 4.9-6
+# Date: 2019-08-06
 # Depends: R (>= 2.9.1)
 # Imports: grid, metafor (>= 1.9-9), lme4
 # Suggests: numDeriv, BiasedUrn
@@ -71,8 +72,8 @@ extra:
 # Encoding: UTF-8
 # RoxygenNote: 6.1.1
 # NeedsCompilation: no
-# Packaged: 2019-04-11 16:23:08 UTC; sc
+# Packaged: 2019-08-06 14:11:02 UTC; sc
 # Author: Guido Schwarzer [cre, aut] (<https://orcid.org/0000-0001-6214-9087>)
 # Maintainer: Guido Schwarzer <sc@imbi.uni-freiburg.de>
 # Repository: CRAN
-# Date/Publication: 2019-04-11 17:32:41 UTC
+# Date/Publication: 2019-08-06 14:50:05 UTC
