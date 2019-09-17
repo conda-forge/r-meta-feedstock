@@ -3,7 +3,7 @@ About r-meta
 
 Home: https://github.com/guido-s/meta http://meta-analysis-with-r.org
 
-Package license: GPL (>= 2)
+Package license: GPL-2
 
 Feedstock license: BSD 3-Clause
 
