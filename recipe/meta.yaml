@@ -23,17 +23,30 @@ build:
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-compquadform
+    - r-dplyr
     - r-lme4
-    - r-metafor >=2.1_0
+    - r-magrittr
+    - r-metadat
+    - r-metafor >=3.0_0
+    - r-purrr
+    - r-readr
+    - r-stringr
     - r-xml2
   run:
     - r-base
     - r-compquadform
+    - r-dplyr
     - r-lme4
-    - r-metafor >=2.1_0
+    - r-magrittr
+    - r-metadat
+    - r-metafor >=3.0_0
+    - r-purrr
+    - r-readr
+    - r-stringr
     - r-xml2
 
 test:
