@@ -26,25 +26,31 @@ requirements:
     - r-base
     - r-compquadform
     - r-dplyr
+    - r-ggplot2
     - r-lme4
     - r-magrittr
     - r-metadat
     - r-metafor >=3.0_0
     - r-purrr
     - r-readr
+    - r-scales
     - r-stringr
+    - r-tibble
     - r-xml2
   run:
     - r-base
     - r-compquadform
     - r-dplyr
+    - r-ggplot2
     - r-lme4
     - r-magrittr
     - r-metadat
     - r-metafor >=3.0_0
     - r-purrr
     - r-readr
+    - r-scales
     - r-stringr
+    - r-tibble
     - r-xml2
 
 test:
