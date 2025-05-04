@@ -1,4 +1,4 @@
-{% set version = "8.0-2" %}
+{% set version = "8.1-0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/meta_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/meta/meta_{{ version }}.tar.gz
-  sha256: 1d3c6600ab7032fb615d0a8632b2aa7f5b6254c12c97f6d82d59d4ea3b55ff69
+  sha256: 65e59cdeef3dbda8ef62e0ea72a06957909b9282571aae82224203c2bcf7eeb1
 
 build:
   number: 0
@@ -26,25 +26,31 @@ requirements:
     - r-base
     - r-compquadform
     - r-dplyr
+    - r-ggplot2
     - r-lme4
     - r-magrittr
     - r-metadat
     - r-metafor >=3.0_0
     - r-purrr
     - r-readr
+    - r-scales
     - r-stringr
+    - r-tibble
     - r-xml2
   run:
     - r-base
     - r-compquadform
     - r-dplyr
+    - r-ggplot2
     - r-lme4
     - r-magrittr
     - r-metadat
     - r-metafor >=3.0_0
     - r-purrr
     - r-readr
+    - r-scales
     - r-stringr
+    - r-tibble
     - r-xml2
 
 test:
