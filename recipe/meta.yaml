@@ -3,7 +3,7 @@
 
 package:
   name: r-meta
-  version: {{ version|replace("-", "_") }}
+  version: "{{ version|replace("-", "_") }}"
 
 source:
   url:
@@ -17,6 +17,10 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
@@ -25,14 +29,16 @@ requirements:
   host:
     - r-base
     - r-compquadform
+    - r-cli
     - r-dplyr
     - r-ggplot2
     - r-lme4
     - r-magrittr
-    - r-metadat
+    - r-metabook >=0.2_0
     - r-metafor >=3.0_0
     - r-purrr
     - r-readr
+    - r-rlang
     - r-scales
     - r-stringr
     - r-tibble
@@ -40,14 +46,16 @@ requirements:
   run:
     - r-base
     - r-compquadform
+    - r-cli
     - r-dplyr
     - r-ggplot2
     - r-lme4
     - r-magrittr
-    - r-metadat
+    - r-metabook >=0.2_0
     - r-metafor >=3.0_0
     - r-purrr
     - r-readr
+    - r-rlang
     - r-scales
     - r-stringr
     - r-tibble
@@ -59,7 +67,8 @@ test:
     - "\"%R%\" -e \"library('meta')\""  # [win]
 
 about:
-  home: https://github.com/guido-s/meta http://meta-analysis-with-r.org
+  home: https://github.com/guido-s/meta
+  doc_url: https://meta-analysis-with-r.org
   license: GPL-2.0-or-later
   summary: "User-friendly general package providing standard methods for meta-analysis and supporting Schwarzer, Carpenter, and Rücker <DOI:10.1007/978-3-319-21416-0>, \"Meta-Analysis with R\" (2015): - fixed effect and random effects meta-analysis; - several plots (forest, funnel, Galbraith / radial, L'Abbe, Baujat, bubble);
     - statistical tests and trim-and-fill method to evaluate bias in meta-analysis; - import data from 'RevMan 5'; - prediction interval, Hartung-Knapp and Paule-Mandel method for random effects model; - cumulative meta-analysis and leave-one-out meta-analysis; - meta-regression; - generalised linear mixed models; - produce
